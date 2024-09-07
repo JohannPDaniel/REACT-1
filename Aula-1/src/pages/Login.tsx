@@ -8,10 +8,11 @@ function Login() {
 			<a href='/home'>
 				<ButtonDefault texto='Login com <a></a>' />
 			</a>
+			
 			<Link to='/home'>
 				<ButtonDefault texto='Login com <link>' />
 			</Link>
-				<ButtonDefault texto='Cadastre-se' />
+			<ButtonDefault texto='Cadastre-se' />
 		</>
 	);
 }
