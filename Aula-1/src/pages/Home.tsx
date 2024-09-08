@@ -5,7 +5,7 @@ const Home = () => {
 	return (
 		<>
 			<h1>Bem Vindo</h1>
-			<Link to='/login'>
+			<Link to='/'>
 				<ButtonDefault texto='Login com <link>' />
 			</Link>
 		</>
