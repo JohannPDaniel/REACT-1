@@ -10,9 +10,7 @@
 npm create vite@latest my-react-app -- --template react-ts
 ```
 
-<a href="#modules1">
-    <li id="modules" style="text-decoration: none;" >Instalar a node_modules</li>
-</a>
+[Instalar a node_modules](#modules1)
 
 ```bash
 npm install
