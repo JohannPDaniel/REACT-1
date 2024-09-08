@@ -19,7 +19,7 @@ npm install
 ```
 
 <a href="#routes1">
-    <li id="routes" style="font-size:16px; margin-bottom: 10px; color: #1dc6ec">
+    <li id="routes" border="none">
         Instalar o React Router Dom
     </li>
 </a>
