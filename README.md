@@ -59,7 +59,7 @@ export function AppRoutes() {
 }
 ```
 <a href="#global">
-    <p id="global1" style="font-size:20px; text-align:center;color:orange ; margin-bottom: 10px;">
+    <p id="global1" align="center">
         GlobalStyles.tsx
     </p>
 </a>
