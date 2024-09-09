@@ -33,10 +33,10 @@ npm install styled-components @types/styled-components
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
-   {
+    {
        path: '/',
        element: <div></div>,
-   },
+    },
 ]);
 
 export function AppRoutes() {
