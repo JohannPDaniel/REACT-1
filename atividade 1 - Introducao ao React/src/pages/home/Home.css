@@ -1,0 +1,63 @@
+/* Define a estrutura geral da página, ocupando toda a altura da janela do navegador. */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Estiliza o cabeçalho da página, incluindo o posicionamento do título e do link. O título é posicionado à esquerda e o link à direita. O link muda de cor quando o mouse passa sobre ele. */
+.home-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 10vh;
+  background-color: #282c34;
+  color: white;
+
+  h1 {
+    margin-left: 20px;
+  }
+
+  a {
+    margin-right: 20px;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+      color: #61dafb;
+    }
+  }
+}
+
+/* Estiliza a seção principal da página, centralizando o título e o parágrafo verticalmente e horizontalmente. O título e o parágrafo têm tamanhos de fonte específicos e uma margem abaixo deles. */
+.home-hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+
+  h1 {
+    font-size: 5rem;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+}
+
+/* ------ */
+/*
+O CSS aninhado, ou "nested CSS", é um recurso que permite aninhar uma regra CSS dentro de outra.
+
+A principal vantagem do CSS aninhado é que ele pode tornar o código mais organizado e fácil de manter. Ele permite que você agrupe regras que são especificamente relacionadas a um componente ou parte de um componente, o que pode tornar o código mais legível e fácil de entender.
+
+Por exemplo, no código que você forneceu, o seletor .home-hero h1 está aninhado dentro do seletor .home-hero. Isso indica que o h1 é um elemento filho do elemento com a classe .home-hero.
+
+No entanto, o CSS aninhado deve ser usado com cuidado, pois pode levar a uma especificidade muito alta e a um código difícil de manter se for usado excessivamente. Além disso, o CSS aninhado começou a suportado no CSS puro recentemente, então pode haver navegadores que não aceitam ainda, então você precisará de um pré-processador para usá-lo.
+*/
