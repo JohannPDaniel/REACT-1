@@ -35,11 +35,8 @@ npm install styled-components
 
 <hr style="border: 1px solid #1dc6ec; width: 100%;">
 
-<a href="#app">
-    <p id="app1" style="font-size:20px;text-align:center;color:lightgreen; margin-bottom: 10px;">
-        AppRoutes.tsx
-    </p>
-</a>
+![AppRoutes](#app) 
+
 
 ```tsx
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -80,32 +77,34 @@ export const GlobalStyle = createGlobalStyle`
 
 <li style="font-size:16px; margin-bottom: 10px;">Estrutura de pastas do projeto</li>
 
-<p style="font-size: 20px;">
+[[fdgfgfgdgf](link-icon.png)](#modules) node_modules
+
+<p>
     📁 my-react-app<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    📁 <a href="#modules" id="modules1" style="color: #79f179;">node_modules</a> <br>
+    📁 [![Link](link-icon.png)](#modules) node_modules <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     📁 public <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     📂 src <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    |_📂 assets - <spam style="font-size: 15px">OBS:. (Tirar do public e colocar no assets)</spam> <br>
+    |_📂 assets - OBS:. (Tirar do public e colocar no assets) <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    |_ 📂 components - <spam style="font-size: 15px">OBS:. (Não vem com o projeto default)</spam> <br>
+    |_ 📂 components - OBS:. (Não vem com o projeto default)<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    |_ 📂 styles - <spam style="font-size: 15px">OBS:. (Não vem com o projeto default)</spam><br>
+    |_ 📂 styles - OBS:. (Não vem com o projeto default)</spam><br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    |_ 📂 configs - <spam style="font-size: 15px">OBS:. (Não vem com o projeto default)</spam>  <br>
+    |_ 📂 configs - OBS:. (Não vem com o projeto default) <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    |_ 📂<a href="#styled" id="styled1" style="color: yellow"> global - <spam style="font-size: 15px">OBS:. (Não vem com o projeto default)</spam></a><br>
+    |_ 📂<a href="#styled" id="styled1" style="color: yellow"> global - OBS:. (Não vem com o projeto default)</spam></a><br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     |_ 📄 <a href="#global1" id="global" style="color: orange">GlobalStyle.tsx</a> <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    |_ 📂<a href="#routes" id="routes1" style="color: #1dc6ec"> routes - <spam style="font-size: 15px">OBS:. (Não vem com o projeto default)</spam></a>   <br>
+    |_ 📂<a href="#routes" id="routes1" style="color: #1dc6ec"> routes - OBS:. (Não vem com o projeto default)</spam></a>   <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     |_ 📄 <a href="#app1" id="app" style="color: lightgreen">AppRoutes.tsx</a>  <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    |_ 📂 pages - <spam style="font-size: 15px">OBS:.(Não vem com o projeto default)</spam><br>
+    |_ 📂 pages - OBS:.(Não vem com o projeto default)</spam><br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     |_ 📄 App.tsx <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
