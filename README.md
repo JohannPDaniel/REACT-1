@@ -10,8 +10,7 @@
 npm create vite@latest my-react-app -- --template react-ts
 ```
 
-[Instalar a node_modules](#modules1)
-
+(👉 [Instalar o node_modules](#modules1) 👈)
 ```bash
 npm install
 ```
