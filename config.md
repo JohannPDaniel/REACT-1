@@ -1,64 +1,52 @@
 # React 1
 
-### Preset inicial para começar um projeto React-ts
+<h2 align="center">Preset inicial para começar um projeto React-ts</h2> 
 
-<li>Criar a pasta para iniciar o projeto React</li>
+<h3 align="center">Criar a pasta para iniciar o projeto React</h3> 
 
 ```bash
 npm create vite@latest my-react-app -- --template react-ts
 ```
-### node_modules <br>
 
-(👉 [Instalar o node_modules](#modules1) 👈)
+<h3 align="center">(👉 Instalar a node_modules 👈)</h3> 
+
 ```bash
 npm install
 ```
 
-<a href="#routes1">
-    <li id="routes" border="none">
-        Instalar o React Router Dom
-    </li>
-</a>
+<h3 align="center">Instalar o React Router Dom</h3>
 
 ```bash
 npm install react-router-dom
 ```
 
-<a href="#styled1">
-    <li id="styled">Instalar o Styled-Components</li>
-</a>
+<h3 align="center">Instalar o Styled-Components</h3> 
 
 ```bash
-npm install styled-components
+npm install styled-components @types/styled-components
 ```
-
 ---
 
-<a href="#app">
-    <p id="app1">
-        AppRoutes.tsx
-    </p>
-</a>
+<h3 align="center">AppRoutes.tsx</h3> 
 
 ```tsx
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
-   {
-       path: '/',
-       element: <div></div>,
-   },
+	{
+		path: '/',
+		element: <div></div>,
+	},
 ]);
 
 export function AppRoutes() {
-    return <RouterProvider router={router} />;
+	return <RouterProvider router={router} />;
 }
 ```
-<a href="#global">
-    <p id="global1" align="center">
-        GlobalStyles.tsx
-    </p>
-</a>
+
+<h3 align="center">
+    GlobalStyles.tsx
+</h3>
 
 ```tsx
 import { createGlobalStyle } from 'styled-components';
@@ -76,13 +64,14 @@ export const GlobalStyle = createGlobalStyle`
    }
 `;
 ```
+<h3 align="center">
+    Estrutura de pastas do projeto
+</h3>
 
-<li>Estrutura de pastas do projeto</li>
-
-<p style="font-size: 20px;">
+<p>
     📁 my-react-app<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    📁 <a href="#modules" id="modules1">node_modules</a> <br>
+    📁 node_modules<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     📁 public <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -92,17 +81,17 @@ export const GlobalStyle = createGlobalStyle`
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     |_ 📂 components - OBS:. (Não vem com o projeto default) <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    |_ 📂 styles - OBS:. (Não vem com o projeto default)</<br>
+    |_ 📂 styles - OBS:. (Não vem com o projeto default)<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     |_ 📂 configs - OBS:. (Não vem com o projeto default) <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    |_ 📂<a href="#styled" id="styled1"> global - OBS:. (Não vem com o projeto default)</a><br>
+    |_ 📂 global - OBS:. (Não vem com o projeto default)<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    |_ 📄 <a href="#global1" id="global">GlobalStyle.tsx</a> <br>
+    |_ 📄 GlobalStyle.tsx<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    |_ 📂<a href="#routes" id="routes1"> routes -OBS:. (Não vem com o projeto default)</a>   <br>
+    |_ 📂 routes -OBS:. (Não vem com o projeto default)  <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    |_ 📄 <a href="#app1" id="app">AppRoutes.tsx</a>  <br>
+    |_ 📄 AppRoutes.tsx <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     |_ 📂 pages - OBS:.(Não vem com o projeto default)<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -115,7 +104,7 @@ export const GlobalStyle = createGlobalStyle`
     📄 .gitignore <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     📄 eslint.config.js <br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     📄 index.html <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     📄 package-lock.json <br>
