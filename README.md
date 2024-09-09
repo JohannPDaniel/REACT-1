@@ -1,14 +1,13 @@
 # React 1
 
-<h3>
-    Preset inicial para começar um projeto React-ts
-</h3>
+### Preset inicial para começar um projeto React-ts
 
-<li style="font-size:16px; margin-bottom: 10px">Criar a pasta para iniciar o projeto React</li>
+<li>Criar a pasta para iniciar o projeto React</li>
 
 ```bash
 npm create vite@latest my-react-app -- --template react-ts
 ```
+### node_modules <br>
 
 (👉 [Instalar o node_modules](#modules1) 👈)
 ```bash
@@ -26,30 +25,33 @@ npm install react-router-dom
 ```
 
 <a href="#styled1">
-    <li id="styled" style="font-size:16px; margin-bottom: 10px; color: yellow">Instalar o Styled-Components</li>
+    <li id="styled">Instalar o Styled-Components</li>
 </a>
 
 ```bash
 npm install styled-components
 ```
 
-<hr style="border: 1px solid #1dc6ec; width: 100%;">
+---
 
-![AppRoutes](#app) 
-
+<a href="#app">
+    <p id="app1">
+        AppRoutes.tsx
+    </p>
+</a>
 
 ```tsx
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
-	{
-		path: '/',
-		element: <div></div>,
-	},
+   {
+       path: '/',
+       element: <div></div>,
+   },
 ]);
 
 export function AppRoutes() {
-	return <RouterProvider router={router} />;
+    return <RouterProvider router={router} />;
 }
 ```
 <a href="#global">
@@ -75,14 +77,12 @@ export const GlobalStyle = createGlobalStyle`
 `;
 ```
 
-<li style="font-size:16px; margin-bottom: 10px;">Estrutura de pastas do projeto</li>
+<li>Estrutura de pastas do projeto</li>
 
-[[fdgfgfgdgf](link-icon.png)](#modules) node_modules
-
-<p>
+<p style="font-size: 20px;">
     📁 my-react-app<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    📁 [![Link](link-icon.png)](#modules) node_modules <br>
+    📁 <a href="#modules" id="modules1">node_modules</a> <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     📁 public <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -90,21 +90,21 @@ export const GlobalStyle = createGlobalStyle`
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     |_📂 assets - OBS:. (Tirar do public e colocar no assets) <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    |_ 📂 components - OBS:. (Não vem com o projeto default)<br>
+    |_ 📂 components - OBS:. (Não vem com o projeto default) <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    |_ 📂 styles - OBS:. (Não vem com o projeto default)</spam><br>
+    |_ 📂 styles - OBS:. (Não vem com o projeto default)</<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     |_ 📂 configs - OBS:. (Não vem com o projeto default) <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    |_ 📂<a href="#styled" id="styled1" style="color: yellow"> global - OBS:. (Não vem com o projeto default)</spam></a><br>
+    |_ 📂<a href="#styled" id="styled1"> global - OBS:. (Não vem com o projeto default)</a><br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    |_ 📄 <a href="#global1" id="global" style="color: orange">GlobalStyle.tsx</a> <br>
+    |_ 📄 <a href="#global1" id="global">GlobalStyle.tsx</a> <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    |_ 📂<a href="#routes" id="routes1" style="color: #1dc6ec"> routes - OBS:. (Não vem com o projeto default)</spam></a>   <br>
+    |_ 📂<a href="#routes" id="routes1"> routes -OBS:. (Não vem com o projeto default)</a>   <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    |_ 📄 <a href="#app1" id="app" style="color: lightgreen">AppRoutes.tsx</a>  <br>
+    |_ 📄 <a href="#app1" id="app">AppRoutes.tsx</a>  <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    |_ 📂 pages - OBS:.(Não vem com o projeto default)</spam><br>
+    |_ 📂 pages - OBS:.(Não vem com o projeto default)<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     |_ 📄 App.tsx <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -115,7 +115,7 @@ export const GlobalStyle = createGlobalStyle`
     📄 .gitignore <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     📄 eslint.config.js <br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     📄 index.html <br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     📄 package-lock.json <br>
