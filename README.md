@@ -29,7 +29,7 @@ npm install styled-components @types/styled-components
 
 <h3 align="center">AppRoutes.tsx</h3> 
 
-```tsx
+```typescript
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
