@@ -1,6 +1,6 @@
 # React 1
 
-<h3 style="text-align: center; text-decoration: underline; font-size: 20px; text-underline-offset: 6px;">
+<h3>
     Preset inicial para começar um projeto React-ts
 </h3>
 
