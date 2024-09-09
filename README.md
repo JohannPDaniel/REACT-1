@@ -5,7 +5,7 @@
 <h3 align="center">Criar a pasta para iniciar o projeto React</h3> 
 
 ```bash
-npm create vite@latest my-react-app -- --template react-ts
+npx create-vite@latest my-react-app --template react-ts
 ```
 
 <h3 align="center">(👉 Instalar a node_modules 👈)</h3> 
