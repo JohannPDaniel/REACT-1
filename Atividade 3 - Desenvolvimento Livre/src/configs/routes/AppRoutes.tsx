@@ -1,11 +1,12 @@
 // instale o React-Router-Dom com o comando: npm install react-router-dom
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Home } from "../../pages/Home";
 
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <h1>Olá mundo</h1>,
+		element: <Home/>,
 	},
 ]);
 

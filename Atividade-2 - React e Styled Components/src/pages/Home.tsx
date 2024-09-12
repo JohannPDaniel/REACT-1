@@ -19,7 +19,7 @@ export const Home = () => {
             <HeaderFooter title="Header">
                 <h1>Minha primeira pagina com React.</h1>
             </HeaderFooter>
-
+                      
             <ContainerCards />
 
             <ContainerStyles direction="column">
