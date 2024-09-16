@@ -1,18 +1,18 @@
 import styled from 'styled-components';
-import image1 from '../../assets/computador.jpg';
+import image4 from '../../assets/image-4.jpg';
 
 export const MainBanner = styled.section`
 	width: 100%;
-	height: 60vh;
+	height: 80vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
     align-items: center;
     gap: 10px;
-    background: url(${image1});
+    background: url(${image4});
     background-repeat: no-repeat;
     background-size: cover; 
-    background-position: top center; 
+    background-position: bottom; 
     text-align: center;
 
     p {
