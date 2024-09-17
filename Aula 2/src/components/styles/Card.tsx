@@ -12,5 +12,9 @@ export const Card = styled.div`
     height: auto;
     max-width: 360px;
     padding: 20px;
-    gap: 16px
+    gap: 16px;
+
+    @media screen and (max-width: 768px) {
+        margin: 20px 0;
+    }
 `;
