@@ -7,7 +7,7 @@ interface TitleProps {
 }
 
 export const Title = styled.h1<TitleProps>`
-	font-size: 3em;
+	font-size: 3rem !important;
 	text-align: center;
 	letter-spacing: 5px;
 

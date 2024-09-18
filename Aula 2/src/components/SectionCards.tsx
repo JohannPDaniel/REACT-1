@@ -32,7 +32,7 @@ const cardsContent: CardContent[] = [
 ];
 export const SectionCards = () => {
 	return (
-		<Container>
+		<Container gap="30px" title1="2em">
 			{cardsContent.map((card) => (
 				<Card>
 					<Avatar

@@ -2,12 +2,18 @@
 
 import styled from 'styled-components';
 
-export const Container = styled.section`
+interface ContainerProps {
+	flexDirection?: 'row' | 'column';
+	gap?: string;
+}
+
+export const Container = styled.section<ContainerProps>`
 	display: flex;
+	flex-direction: ${({ flexDirection }) => flexDirection ?? 'row'};
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	column-gap: 30px;
+	gap: ${({ gap }) => gap ?? 0};
 	width: 100%;
 	height: auto;
 	margin: auto;
@@ -19,8 +25,8 @@ export const Container = styled.section`
 		color: ${({ theme }) => theme.textColor};
 	}
 
-    @media screen and (max-width: 768px) {
-        flex-direction: column;
-        row-gap: 30px;
-    }
+	@media screen and (max-width: 768px) {
+		flex-direction: column;
+		row-gap: 30px;
+	}
 `;

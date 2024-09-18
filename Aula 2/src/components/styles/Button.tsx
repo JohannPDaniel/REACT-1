@@ -21,4 +21,4 @@ export const Button = styled.button`
 		box-shadow: none;
 		cursor: auto;
 	}
-`;
+`
