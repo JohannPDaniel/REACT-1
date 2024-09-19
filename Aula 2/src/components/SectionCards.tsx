@@ -1,7 +1,7 @@
-import { Avatar } from './styles/Avatar';
-import { Button } from './styles/Button';
-import { Card } from './styles/Card';
-import { Container } from './styles/Container';
+import { Avatar } from "./styles/Avatar";
+import { Button } from "./styles/Button";
+import { Card } from "./styles/Card";
+import { Container } from "./styles/Container";
 
 type CardContent = {
 	imgSrc: string;
@@ -30,9 +30,10 @@ const cardsContent: CardContent[] = [
 		description: 'Sit amet consectetur adipisicing elit.',
 	},
 ];
+
 export const SectionCards = () => {
 	return (
-		<Container gap="30px" title1="2em">
+		<Container gap="30px">
 			{cardsContent.map((card) => (
 				<Card>
 					<Avatar
