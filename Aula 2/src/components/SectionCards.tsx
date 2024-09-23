@@ -38,7 +38,8 @@ export const SectionCards = () => {
 				<Card>
 					<Avatar
 						src={card.imgSrc}
-						alt={card.imgAlt}
+						alt={ card.imgAlt }
+						size="lg"
 					/>
 					<h1>{card.title}</h1>
 					<p>{card.description}</p>
