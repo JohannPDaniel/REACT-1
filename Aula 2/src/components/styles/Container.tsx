@@ -5,6 +5,7 @@ import styled from 'styled-components';
 interface ContainerProps {
 	flexDirection?: 'row' | 'column';
 	gap?: string;
+	isPadding?: boolean;
 }
 
 export const Container = styled.section<ContainerProps>`
@@ -17,7 +18,7 @@ export const Container = styled.section<ContainerProps>`
 	width: 100%;
 	height: auto;
 	margin: auto;
-	padding: 70px 0;
+	padding: ${({isPadding}) => isPadding ? "0" : "70px 0"};
 	max-width: 1040px;
 
 	h1 {
