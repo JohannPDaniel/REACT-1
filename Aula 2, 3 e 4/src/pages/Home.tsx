@@ -4,8 +4,8 @@ import { Divider } from "../components/styles/Divider";
 import { Gallery } from "../components/styles/Gallery";
 import { DefaultLayout } from "../configs/layout/DefaultLayout";
 
-export function Home() {
-    return (
+export function Home () {
+	return (
         <DefaultLayout>
             <Banner />
             <SectionCards />

@@ -1,9 +1,9 @@
-import { Button } from "./Button";
-import logo from "../../assets/logos/dev.webp";
-import { Avatar } from "./Avatar";
-import { Header } from "./Header";
+import { Avatar } from "./styles/Avatar";
+import { Button } from "./styles/Button";
+import { Header } from "./styles/Header";
 import { Link } from "react-router-dom";
-import { Navigation } from "../../configs/navigation/Types";
+import { Navigation } from "../configs/navigation/Types";
+import logo from "../../assets/logos/dev.webp";
 
 interface NavBarProps {
     navigation: Navigation[];
