@@ -22,7 +22,7 @@ export const Header = styled.header`
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 16px;
+        gap: 30px;
 
         a {
             display: inline-block;
@@ -30,7 +30,7 @@ export const Header = styled.header`
             font-size: 18px;
 
             &:hover {
-                color: ${({ theme }) => theme.primaryColor};
+                color: ${({ theme }) => theme.hoverColor};
             }
         }
     }

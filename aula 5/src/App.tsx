@@ -5,7 +5,7 @@ import { darkTheme, lightTheme } from "./config/themes";
 
 function App() {
   return (
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={lightTheme}>
           <AppRoutes />
           <GlobalStyle />
       </ThemeProvider>

@@ -21,4 +21,7 @@ export const darkTheme: DefaultTheme = {
 
     // Button
     buttonColor: Cores.Roxo[4],
+
+    // hover
+    hoverColor: Cores.Laranja[5]
 };

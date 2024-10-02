@@ -8,7 +8,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background-color: ${({ theme }) => theme.backgroundColor};
+        font-family: "Poppins", sans-serif;
+        background-color: ${( { theme } ) => theme.backgroundColor};
         color: ${({ theme }) => theme.textColor};
     }
 

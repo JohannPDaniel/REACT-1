@@ -24,4 +24,14 @@ export const FooterRoot = styled.footer`
             }
         }
     }
+
+    @media screen and (max-width: 480px) {
+        height: 80px;
+        padding-inline: 50px;
+    }
+
+    @media screen and (min-width: 480px) and (max-width: 992px) {
+        height: 80px;
+        padding-inline: 50px;
+    }
 `;

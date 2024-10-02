@@ -6,7 +6,11 @@ export const navigations: Navigation[] = [
         to: "/",
     },
     {
-        title: "Sobre nos",
+        title: "Sobre nós",
         to: "/about",
     },
+    {
+        title: "Presença",
+        to: "/presenca"
+    }
 ];

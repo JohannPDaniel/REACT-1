@@ -10,5 +10,6 @@ declare module 'styled-components' {
         icone: string;
         border: string;
         buttonColor: string;
+        hoverColor: string;
     }
 }

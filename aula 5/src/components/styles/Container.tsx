@@ -14,7 +14,7 @@ export const Container = styled.section<ContainerProps>`
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	gap: ${({ gap }) => gap ?? 0};
+	gap: ${({ gap }) => gap ?? "20px"};
 	width: 100%;
 	height: auto;
 	margin: auto;
@@ -22,11 +22,11 @@ export const Container = styled.section<ContainerProps>`
 	max-width: 1040px;
 
 	h1 {
-		font-size: 2em;
+		font-size: 3em;
 		color: ${({ theme }) => theme.textColor};
 	}
 
-	@media screen and (max-width: 768px) {
+	@media screen and (max-width: 480px) {
 		flex-direction: column;
 		row-gap: 30px;
 	}

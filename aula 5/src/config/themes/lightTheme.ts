@@ -21,4 +21,7 @@ export const lightTheme: DefaultTheme = {
 
     // Button
     buttonColor: Cores.Azul[5],
+
+    // hover
+    hoverColor: Cores.Aqua[2],
 };
