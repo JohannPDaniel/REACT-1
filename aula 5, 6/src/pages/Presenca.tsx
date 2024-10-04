@@ -17,11 +17,11 @@ interface Presenca {
 export const Presenca = () => {
     const [listaPresenca, setListaPresenca] = useState<Presenca[]>([]);
     const [idSelected, setIdSelected] = useState<string>("");
-    const [isNameSelected, setIsNameSelected] = useState<string>("");
+    const [nameSelected, setNameSelected] = useState<string>("");
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
     const [isOpenModalUpdated, setIsOpenModalUpdated] = useState<boolean>(false);
 
-    function submitForm(evento: React.FormEvent<HTMLFormElement>) {
+    function submitForm(evento: React.FormEvent<HTMLFormElement>): void {
         evento.preventDefault();
 
         const newPresenca: Presenca = {
@@ -40,11 +40,20 @@ export const Presenca = () => {
         evento.currentTarget.reset();
     }
 
-    function updatedPresenca(evento: React.FormEvent<HTMLFormElement>) {
+    function updatedPresenca(evento: React.FormEvent<HTMLFormElement>): void {
         evento.preventDefault();
+        
+        if (!nameSelected.length) {
+            alert("Nome inválido");
+            return;
+        }
+
+        setListaPresenca((prevState) => prevState.map((presenca) => (presenca.id === idSelected ? { ...presenca, nome: nameSelected } : presenca)));
+
+        closeModalUpdated();
     }
 
-    function openModalUpdated(id: string) {
+    function openModalUpdated(id: string): void {
         setIsOpenModalUpdated(true);
         setIdSelected(id);
 
@@ -54,7 +63,7 @@ export const Presenca = () => {
             return;
         }
 
-        setIsNameSelected(nomePresenca.nome);
+        setNameSelected(nomePresenca.nome);
     }
 
     function openModalExclude(id: string) {
@@ -157,8 +166,8 @@ export const Presenca = () => {
                     <Input
                         type="text"
                         name="nome"
-                        value={isNameSelected}
-                        onChange={(e) => setIsNameSelected(e.target.value)}
+                        value={nameSelected}
+                        onChange={(e) => setNameSelected(e.target.value)}
                     />
                     <Button type="submit">Atualizar</Button>
                 </form>

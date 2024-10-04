@@ -24,6 +24,7 @@ export const Footer = () => {
                                 src={link.img}
                                 alt={link.alt}
                             />
+                            <i className="fab fa-accessible-icon"></i>
                         </Link>
                     );
                 })}
