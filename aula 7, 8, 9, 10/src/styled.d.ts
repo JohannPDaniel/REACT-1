@@ -8,5 +8,6 @@ declare module 'styled-components' {
         boxShadow: string;
         icone: string;
         buttonColor: string;
+        hoverColor: string;
     }
 }

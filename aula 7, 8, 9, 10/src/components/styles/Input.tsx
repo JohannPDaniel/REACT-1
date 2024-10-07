@@ -2,7 +2,11 @@
 
 import styled from "styled-components";
 
-export const Input = styled.input`
+interface InputProps {
+    isValid: boolean | null;
+}
+
+export const Input = styled.input<InputProps>`
     width: 400px;
     padding: 15px 20px;
     font-size: 1rem;

@@ -7,11 +7,10 @@ export const FooterRoot = styled.footer`
     justify-content: space-between;
     align-items: center;
     padding-inline: 250px;
-    box-shadow: 12px 4px 15px ${({ theme }) => theme.boxShadow};
 
     nav {
         display: flex;
-        gap: 16px;
+        gap: 10px;
 
         img {
             width: 30px;

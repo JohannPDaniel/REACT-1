@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Cores } from "../../config/types/Cores";
 
 type TSize = "small" | "medium" | "large";
 type TVariant = "default" | "error";
@@ -11,7 +10,7 @@ interface ButtonProps {
 
 export const Button = styled.button<ButtonProps>`
     color: #fff;
-    background-color: ${({ variant }) => variant === 'error' ? 'red' : Cores.Azul[2]};
+    background-color: ${({ variant, theme }) => variant === 'error' ? 'red' : theme.buttonColor};
     border: 1px solid ${({ theme }) => theme.border};
     border-radius: 8px;
     cursor: pointer;
