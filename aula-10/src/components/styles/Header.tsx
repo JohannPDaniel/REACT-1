@@ -26,7 +26,7 @@ export const Header = styled.header`
 
         a {
             display: inline-block;
-            color: ${({ theme }) => theme.textColor};
+            color: ${({ theme }) => theme.textColor_1};
             font-size: 18px;
 
             &:hover {

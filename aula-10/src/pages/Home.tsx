@@ -1,74 +1,104 @@
 import { useState } from 'react';
 import { Container } from '../components/styles/Container';
-import { Select } from '../components/styles/Select';
-import { Table } from '../components/styles/Table';
+import { SelectStyle } from '../components/styles/SelectStyle';
+import { Table } from '../components/Table';
 import { DefaultLayout } from '../config/layout/DefaultLayout';
-import { v4 as uuid } from 'uuid';
-import { Button } from '../components/styles/Button';
+import { ModalCreate } from '../components/ModalCreate';
+import { ModalGeneric } from '../components/ModalGeneric';
+import { OpenModalButton } from '../components/styles/OpenModalButton';
+import { ModalUpdate } from '../components/ModalUpdate';
 
-interface Transaction {
+export interface Transaction {
 	id: string;
-	type: 'entrada' | 'saída';
+	type: 'entrada' | 'saida';
 	value: number;
 	description: string;
-	create_at: Date;
+	created_at: Date;
 }
 
 export const Home = () => {
-	const [transactions, setTransaction] = useState<Transaction[]>([
-		{
-			id: uuid(),
-			type: 'entrada',
-			value: 1600,
-			description: 'Salário',
-			create_at: new Date(),
-		},
-	]);
+	const [transactions, setTransactions] = useState<Transaction[]>([]);
+	const [isModalCreateOpen, setIsModalCreateOpen] = useState<boolean>(false);
+	const [isModalUpdateOpen, setIsModalUpdateOpen] = useState<boolean>(false);
+	const [selectedTransactionId, setSelectedTransactionId] =
+		useState<string>('');
+	function handleNewTransaction(newTransaction: Transaction) {
+		setTransactions([...transactions, newTransaction]);
+	}
+
+	function toggleCreateModal() {
+		setIsModalCreateOpen(!isModalCreateOpen);
+	}
+
+	function updateModal(id: string) {
+		setSelectedTransactionId(id);
+		setIsModalUpdateOpen(!isModalUpdateOpen);
+	}
+
+	function closeUpdateModal() {
+		setIsModalUpdateOpen(!isModalUpdateOpen);
+		setSelectedTransactionId('');
+	}
+
+	function handleUpdateTransaction(updatedTransaction: Transaction) {
+		setTransactions((prevTransactions) =>
+			prevTransactions.map((transaction) =>
+				transaction.id === updatedTransaction.id
+					? updatedTransaction
+					: transaction
+			)
+		);
+		closeUpdateModal();
+	}
+	const findTransaction = transactions.find(
+		(transaction) => transaction.id === selectedTransactionId
+	);
+
 	return (
 		<DefaultLayout>
 			<Container
 				flexDirection='column'
 				gap='50px'>
-				<Select
+				<SelectStyle
 					name='transaction'
 					id='transaction'>
 					<option value=''>Selecione um tipo</option>
 					<option value='Entrada'>Entrada</option>
 					<option value='Saida'>Saída</option>
-				</Select>
-				<Table>
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>Tipo</th>
-							<th>Valor</th>
-							<th>Descrição</th>
-							<th>Data de Criação</th>
-							<th>Ação</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							{transactions.map((trans, index) => (
-								<>
-									<td>{index + 1}</td>
-									<td>{trans.type}</td>
-									<td>{trans.value.toFixed(2)}</td>
-									<td>{trans.description}</td>
-									<td>{trans.create_at.toLocaleDateString()}</td>
-									<td>
-										<Button
-											size='small'
-											variant='error'>
-											Editar
-										</Button>
-										<Button size='small'>Deletar</Button>
-									</td>
-								</>
-							))}
-						</tr>
-					</tbody>
-				</Table>
+				</SelectStyle>
+
+				<Table
+					updateModal={updateModal}
+					transactions={transactions}
+				/>
+				<OpenModalButton onClick={toggleCreateModal}>+</OpenModalButton>
+
+				<ModalGeneric
+					isOpen={isModalCreateOpen}
+					onClose={toggleCreateModal}
+					onSend={handleNewTransaction}>
+					<ModalCreate
+						title='Criar Item'
+						onSubmit={handleNewTransaction}
+						onClose={toggleCreateModal}
+					/>
+				</ModalGeneric>
+
+				{findTransaction && (
+					<ModalGeneric
+						isOpen={isModalUpdateOpen}
+						onClose={closeUpdateModal}
+						onSend={(date) => {
+							handleUpdateTransaction(date);
+						}}>
+						<ModalUpdate
+							title='Atualizar item'
+							onSubmitUpdate={handleUpdateTransaction}
+							onCloseUpdate={closeUpdateModal}
+							initialTransaction={findTransaction}
+						/>
+					</ModalGeneric>
+				)}
 			</Container>
 		</DefaultLayout>
 	);

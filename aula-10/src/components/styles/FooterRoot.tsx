@@ -7,6 +7,7 @@ export const FooterRoot = styled.footer`
     justify-content: space-between;
     align-items: center;
     padding-inline: 250px;
+    color: ${({theme}) => theme.textColor_1};
 
     nav {
         display: flex;

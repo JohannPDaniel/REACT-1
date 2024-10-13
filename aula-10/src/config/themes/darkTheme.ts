@@ -7,7 +7,8 @@ export const darkTheme: DefaultTheme = {
     dividerColor: "var(--cinza-7)",
 
     // Texto
-    textColor: "var(--branco-10)",
+    textColor_1: "var(--branco-10)",
+    textColor_2: "var(--preto-1)",
 
     // Box-shadow
     boxShadow:  "var(--branco-10)",
@@ -18,5 +19,5 @@ export const darkTheme: DefaultTheme = {
 
     // Button
     buttonColor: "var(--roxo-5)",
-    hoverColor: "var(--roxo-6)"
+    hoverColor: "var(--roxo-7)"
 };

@@ -4,7 +4,8 @@ type TLightDark = 'none' | 'invert()';
 declare module 'styled-components' {
 	export interface DefaultTheme {
 		backgroundColor: string;
-		textColor: string;
+		textColor_1: string;
+		textColor_2: string;
 		dividerColor: string;
 		boxShadow: string;
 		icone_1: TLightDark;

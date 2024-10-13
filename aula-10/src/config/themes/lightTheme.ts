@@ -7,7 +7,8 @@ export const lightTheme: DefaultTheme = {
 	dividerColor: 'var(--cinza-3)',
 
 	// Texto
-	textColor: 'var(--preto-1)',
+	textColor_1: 'var(--preto-1)',
+	textColor_2: 'var(--branco-1)',
 
 	// Box-shadow
 	boxShadow: 'var(--preto-1)',
@@ -18,5 +19,5 @@ export const lightTheme: DefaultTheme = {
 
 	// Button
 	buttonColor: 'var(--azul-1)',
-	hoverColor: 'var(--azul-5)',
+	hoverColor: 'var(--azul-9)',
 };

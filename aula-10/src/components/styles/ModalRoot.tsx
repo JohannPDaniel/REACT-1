@@ -1,29 +1,34 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const ModalRoot = styled.div`
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+interface ModalRootProps {
+	width?: string;
+	height?: string;
+}
 
-    .container-modal {
-        background-color: #fff;
-        padding: 16px;
-        border-radius: 8px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-    }
+export const ModalRoot = styled.div<ModalRootProps>`
+	position: fixed;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 
-    .buttons {
-        display: flex;
-        align-self: center;
-        gap: 10px;
-        margin-top: 5px
-    }
+	> div {
+		width: 100%;
+		max-width: ${({ width }) => width || '450px'};
+		height: ${({ height }) => height || '400px'};
+		background-color: var(--branco-1);
+		border-radius: 10px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 15px;
+
+		h2 {
+			color: var(--preto-1);
+			font-size: 2rem;
+		}
+	}
 `;
