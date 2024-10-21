@@ -1,14 +1,14 @@
-import { Transaction } from '../pages/Home';
+import { Transaction } from '../config/types/Transaction';
 import { Button } from './styles/Button';
 import { TableStyle } from './styles/TableStyle';
 
 interface TableProps {
 	transactions: Transaction[];
-	updateModal: (id: string) => void;
+	onDelete: (id: string) => void;
+	onUpdate: (id: string) => void;
 }
 
-export const Table = ({ transactions, updateModal }: TableProps) => {
-
+export const Table = ({ transactions, onDelete, onUpdate }: TableProps) => {
 	return (
 		<TableStyle>
 			<thead>
@@ -28,15 +28,19 @@ export const Table = ({ transactions, updateModal }: TableProps) => {
 						<td>{trans.type}</td>
 						<td>{trans.value.toFixed(2)}</td>
 						<td>{trans.description}</td>
-						<td>{trans.created_at.toLocaleDateString()}</td>
+						<td>{trans.createdAt.toLocaleDateString()}</td>
 						<td>
 							<Button
 								size='small'
 								variant='error'
-								onClick={() => updateModal(trans.id)}>
+								onClick={() => onUpdate(trans.id)}>
 								Editar
 							</Button>
-							<Button size='small'>Deletar</Button>
+							<Button
+								size='small'
+								onClick={() => onDelete(trans.id)}>
+								Deletar
+							</Button>
 						</td>
 					</tr>
 				))}

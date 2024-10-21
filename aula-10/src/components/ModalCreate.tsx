@@ -1,93 +1,109 @@
 import { useState } from 'react';
-import { v4 as uuid } from 'uuid';
-import { Transaction } from '../pages/Home';
 import { Button } from './styles/Button';
 import { FormStyle } from './styles/FormStyle';
 import { Input } from './styles/Input';
-import { SelectStyle } from './styles/SelectStyle';
+import { Transaction } from '../config/types/Transaction';
+import { generateId } from '../config/types/generateID';
+import { Select } from './Select';
 
 export type TType = 'entrada' | 'saida';
 
 interface FormProps {
 	title: string;
-	date?: Date;
 	onClose: () => void;
-	onSubmit: (data: Transaction) => void;
+	onSave: (trans: Transaction) => void;
+	onEdit?: (trans: Transaction) => void;
 }
 
-export const ModalCreate = ({ title, date, onClose, onSubmit }: FormProps) => {
-	const [transactionType, setTransactionType] = useState<TType>('entrada');
-	const [money, setMoney] = useState<string>('');
-	const [description, setDescription] = useState<string>('');
-	const [dateInput, setDateInput] = useState<string>(
-		date ? date.toISOString().slice(0, 16) : ''
-	);
+const emptyTransaction: Transaction = {
+	id: '',
+	type: '',
+	description: '',
+	value: 0,
+	createdAt: new Date(),
+};
 
-	function submitModal(e: React.FormEvent<HTMLFormElement>) {
+export const ModalCreate = ({ title, onClose, onSave, onEdit }: FormProps) => {
+	const [transaction, setTransaction] = useState<Transaction>(emptyTransaction);
+
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+		e.stopPropagation();
 
-		const newTransaction: Transaction = {
-			id: uuid(),
-			type: transactionType,
-			value: parseFloat(money),
-			description,
-			created_at: new Date(dateInput),
-		};
+		const tipo = e.currentTarget.tipo.value;
+		const valor = e.currentTarget.valor.value;
+		const descricao = e.currentTarget.descricao.value;
 
-		onSubmit(newTransaction);
+		const valorNumber = Number(valor);
 
-		onClose();
-	}
+		if (!tipo || !valor || !descricao) {
+			return;
+		}
+
+		if (onSave) {
+			const objectTransactions: Transaction = {
+				id: generateId(),
+				type: tipo,
+				description: descricao,
+				value: Number(valor),
+				createdAt: new Date(),
+			};
+			onSave(objectTransactions);
+		} else {
+			const objectTransaction: Transaction = {
+				...transaction,
+				type: tipo,
+				description: descricao,
+				value: valorNumber,
+			};
+			if (onEdit) onEdit(objectTransaction);
+		}
+	};
+
+	const handleChange = (
+		e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+	) => {
+		const { name, value } = e.target;
+		setTransaction((prevState) => ({
+			...prevState,
+			[name]: name === 'valor' ? Number(value) : value,
+		}));
+	};
 
 	return (
 		<>
 			<h2>{title}</h2>
 			<FormStyle
-				onSubmit={submitModal}
+				onSubmit={handleSubmit}
 				flexDirection='column'
 				gap='20px'>
-				<SelectStyle
+				<Select
+					name='type'
 					maxWidth='400px'
-					name='transaction'
-					value={transactionType}
-					onChange={(e) =>
-						setTransactionType(e.target.value as 'entrada' | 'saida')
-					}
-					id='transaction'>
-					<option
-						value=''
-						disabled>
-						Selecione um tipo
-					</option>
-					<option value='entrada'>Entrada</option>
-					<option value='saida'>Saída</option>
-				</SelectStyle>
+					value={transaction?.type || ''}
+					onChange={handleChange}
+				/>
 
 				<Input
 					type='number'
 					step={0.01}
 					name='money'
-					value={money}
-					onChange={(e) => setMoney(e.target.value)}
+					value={transaction?.value || ''}
+					onChange={handleChange}
 					placeholder='0.00'
 					required
 				/>
+
 				<Input
 					type='text'
 					name='description'
-					value={description}
-					onChange={(e) => setDescription(e.target.value)}
+					value={transaction?.description || ''}
+					onChange={handleChange}
 					placeholder='Descrição'
 					required
 				/>
-				<Input
-					type='date'
-					name='Date'
-					value={dateInput}
-					onChange={(e) => setDateInput(e.target.value)}
-					required
-				/>
-				<div className='buttons'>
+
+				<div>
 					<Button
 						onClick={onClose}
 						size='small'

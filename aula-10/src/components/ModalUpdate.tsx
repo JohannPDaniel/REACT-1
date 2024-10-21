@@ -1,49 +1,86 @@
-import { useState } from 'react';
-import { Transaction } from '../pages/Home';
+import { useEffect, useState } from 'react';
+import { generateId } from '../config/types/generateID';
+import { Transaction } from '../config/types/Transaction';
+import { Select } from './Select';
 import { Button } from './styles/Button';
 import { FormStyle } from './styles/FormStyle';
 import { Input } from './styles/Input';
-import { SelectStyle } from './styles/SelectStyle';
-import { TType } from './ModalCreate';
 
 interface ModalUpdate {
 	title: string;
-	onSubmitUpdate: (date: Transaction) => void;
-	onCloseUpdate: () => void;
-	initialTransaction: Transaction;
+	onClose: () => void;
+	updated?: Transaction;
+	onSave?: (trans: Transaction) => void;
+	onEdit?: (trans: Transaction) => void;
 }
+
+const emptyTransaction: Transaction = {
+	id: '',
+	type: '',
+	description: '',
+	value: 0,
+	createdAt: new Date(),
+};
 
 export const ModalUpdate = ({
 	title,
-	onSubmitUpdate,
-	onCloseUpdate,
-	initialTransaction,
+	onClose,
+	updated,
+	onSave,
+	onEdit,
 }: ModalUpdate) => {
-	const [type, setType] = useState<TType>(initialTransaction.type);
-	const [value, setValue] = useState<string>(initialTransaction.value.toFixed(2));
-	const [description, setDescription] = useState<string>(
-		initialTransaction.description
-	);
-	const [dateInput, setDateInput] = useState<string>(
-		initialTransaction.created_at
-			? new Date(initialTransaction.created_at).toISOString().slice(0, 10) 
-			: ''
-	);
+	const [transaction, setTransaction] = useState<Transaction>(emptyTransaction);
+
+	useEffect(() => {
+		if (updated) {
+			setTransaction(updated);
+		} else {
+			setTransaction(emptyTransaction);
+		}
+	}, [updated]);
+
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+		e.stopPropagation();
 
-		const [year, month, day] = dateInput.split('-').map(Number);
-		const correctedDate = new Date(year, month - 1, day);
+		const tipo = e.currentTarget.tipo.value;
+		const valor = e.currentTarget.valor.value;
+		const descricao = e.currentTarget.descricao.value;
 
-		const updatedTransaction: Transaction = {
-			...initialTransaction,
-			type,
-			value: Number(value),
-			description,
-			created_at: correctedDate,
-		};
+		const valorNumber = Number(valor);
 
-		onSubmitUpdate(updatedTransaction);
+		if (!tipo || !valor || !descricao) {
+			return;
+		}
+
+		if (onSave) {
+			const objectTransactions: Transaction = {
+				id: generateId(),
+				type: tipo,
+				description: descricao,
+				value: Number(valor),
+				createdAt: new Date(),
+			};
+			onSave(objectTransactions);
+		} else {
+			const objectTransaction: Transaction = {
+				...transaction,
+				type: tipo,
+				description: descricao,
+				value: valorNumber,
+			};
+			if (onEdit) onEdit(objectTransaction);
+		}
+	};
+
+	const handleChange = (
+		e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+	) => {
+		const { name, value } = e.currentTarget;
+		setTransaction((prevState) => ({
+			...prevState,
+			[name]: name === 'valor' ? Number(value) : value,
+		}));
 	};
 	return (
 		<>
@@ -52,48 +89,33 @@ export const ModalUpdate = ({
 				onSubmit={handleSubmit}
 				flexDirection='column'
 				gap='20px'>
-				<SelectStyle
-					maxWidth='400px'
-					name='transaction'
-					value={type}
-					onChange={(e) => setType(e.target.value as 'entrada' | 'saida')}
-					id='transaction'>
-					<option
-						value=''
-						disabled>
-						Selecione um tipo
-					</option>
-					<option value='entrada'>Entrada</option>
-					<option value='saida'>Saída</option>
-				</SelectStyle>
+				<Select
+					name='type'
+					value={transaction?.type || ''}
+					onChange={handleChange}
+				/>
 
 				<Input
 					type='number'
 					step={0.01}
-					name='money'
-					value={value}
-					onChange={(e) => setValue(e.target.value)}
+					name='valor'
+					value={transaction?.value || ''}
+					onChange={handleChange}
 					placeholder='0.00'
 					required
 				/>
 				<Input
 					type='text'
 					name='description'
-					value={description}
-					onChange={(e) => setDescription(e.target.value)}
+					value={transaction?.description || ''}
+					onChange={handleChange}
 					placeholder='Descrição'
 					required
 				/>
-				<Input
-					type='date'
-					name='Date'
-					value={dateInput}
-					onChange={(e) => setDateInput(e.target.value)}
-					required
-				/>
-				<div className='buttons'>
+
+				<div>
 					<Button
-						onClick={onCloseUpdate}
+						onClick={onClose}
 						size='small'
 						variant='error'>
 						Cancelar

@@ -1,10 +1,10 @@
-import { Transaction } from '../pages/Home';
+import { Transaction } from "../config/types/Transaction";
 import { ModalRoot } from './styles/ModalRoot';
 
 interface ModalGenericProps {
 	isOpen: boolean;
 	onClose: () => void;
-	onSend?: (data: Transaction) => void;
+	onSave?: (trans: Transaction) => void;
 	children: React.ReactNode;
 	width?: string;
 	height?: string;
@@ -21,7 +21,7 @@ export const ModalGeneric = ({
 		<>
 			{isOpen && (
 				<ModalRoot
-					width={ width }
+					width={width}
 					height={height}
 					onClick={onClose}>
 					<div onClick={(e) => e.stopPropagation()}>{children}</div>
