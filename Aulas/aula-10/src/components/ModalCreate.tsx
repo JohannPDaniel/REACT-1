@@ -6,8 +6,6 @@ import { Transaction } from '../config/types/Transaction';
 import { generateId } from '../config/types/generateID';
 import { Select } from './Select';
 
-export type TType = 'entrada' | 'saida';
-
 interface FormProps {
 	title: string;
 	onClose: () => void;
@@ -15,26 +13,16 @@ interface FormProps {
 	onEdit?: (trans: Transaction) => void;
 }
 
-const emptyTransaction: Transaction = {
-	id: '',
-	type: '',
-	description: '',
-	value: 0,
-	createdAt: new Date(),
-};
-
-export const ModalCreate = ({ title, onClose, onSave, onEdit }: FormProps) => {
-	const [transaction, setTransaction] = useState<Transaction>(emptyTransaction);
+export const ModalCreate = ({ title, onClose, onSave }: FormProps) => {
+	const [transaction, setTransaction] = useState<Transaction>();
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		e.stopPropagation();
 
 		const tipo = e.currentTarget.tipo.value;
-		const valor = e.currentTarget.valor.value;
+		const valor = e.currentTarget.value.value;
 		const descricao = e.currentTarget.descricao.value;
-
-		const valorNumber = Number(valor);
 
 		if (!tipo || !valor || !descricao) {
 			return;
@@ -49,26 +37,19 @@ export const ModalCreate = ({ title, onClose, onSave, onEdit }: FormProps) => {
 				createdAt: new Date(),
 			};
 			onSave(objectTransactions);
-		} else {
-			const objectTransaction: Transaction = {
-				...transaction,
-				type: tipo,
-				description: descricao,
-				value: valorNumber,
-			};
-			if (onEdit) onEdit(objectTransaction);
 		}
 	};
 
-	const handleChange = (
-		e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-	) => {
-		const { name, value } = e.target;
-		setTransaction((prevState) => ({
-			...prevState,
-			[name]: name === 'valor' ? Number(value) : value,
-		}));
-	};
+const handleChange = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+) => {
+  const { name, value } = e.target;
+
+  setTransaction((prevState) => ({
+    ...prevState,
+    [name]: name === 'value' ? Number(value) : value,
+  }));
+};
 
 	return (
 		<>
@@ -87,8 +68,8 @@ export const ModalCreate = ({ title, onClose, onSave, onEdit }: FormProps) => {
 				<Input
 					type='number'
 					step={0.01}
-					name='money'
-					value={transaction?.value || ''}
+					name='value' 
+					value={transaction?.value || 0}  
 					onChange={handleChange}
 					placeholder='0.00'
 					required

@@ -26,7 +26,7 @@ export const Table = ({ transactions, onDelete, onUpdate }: TableProps) => {
 					<tr key={trans.id}>
 						<td>{index + 1}</td>
 						<td>{trans.type}</td>
-						<td>{trans.value.toFixed(2)}</td>
+						<td>{trans.value?.toFixed(2)}</td>
 						<td>{trans.description}</td>
 						<td>{trans.createdAt.toLocaleDateString()}</td>
 						<td>

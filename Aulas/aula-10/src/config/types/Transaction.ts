@@ -1,6 +1,6 @@
 export interface Transaction {
 	id: string;
-	type: string | undefined;
+	type: string;
 	value: number;
 	description: string;
 	createdAt: Date;
