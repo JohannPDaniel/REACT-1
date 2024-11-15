@@ -87,6 +87,7 @@ export const ModalUpdate = ({
       <h2>{title}</h2>
       <FormStyle onSubmit={handleSubmit} flexDirection="column" gap="20px">
         <Select
+          maxWidth="400px"
           name="type"
           value={transaction?.type || ""}
           onChange={handleChange}
